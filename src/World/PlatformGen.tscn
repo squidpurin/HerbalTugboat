@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/World/PlatformGen.gd" type="Script" id=1]
+[ext_resource path="res://src/World/Platform.tscn" type="PackedScene" id=2]
+
+[node name="PlatformGen" type="Position2D"]
+script = ExtResource( 1 )
+platform = ExtResource( 2 )
+grid_size = 160
+max_blocks = 20
