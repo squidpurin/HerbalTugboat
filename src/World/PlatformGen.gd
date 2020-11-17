@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		if !is_connected("instance_node", Global.level, "instance_node"):
 			connect("instance_node", Global.level, "instance_node")
 	
-	if gen_height < Global.get("player").position.y / grid_size:	
+	if gen_height < (Global.get("player").position.y * 0.3 + get_viewport().size.y) / grid_size:	
 		# Randomisation
 		var distance = rng.randi_range(dist_min, dist_max)
 		var xpos = rng.randi_range(x_min, x_max)
@@ -44,8 +44,8 @@ func _process(delta: float) -> void:
 			var pos = grid_size * i
 			emit_signal("instance_node", platform, Vector2(pos, global_position.y))
 		gen_height += distance
-		
+		print("Player Y: " + str(Global.get("player").position.y) + "Gen height: " + str(gen_height) + "\tDistance: " + str(distance) )
 		# Enemy Spawn
 		if enemy_chance < enemy_thresh:
-			#emit_signal("instance_node", enemy, Vector2(xpos * grid_size, global_position.y - grid_size))
+			emit_signal("instance_node", enemy, Vector2(xpos * grid_size, global_position.y - grid_size))
 			pass

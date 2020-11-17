@@ -501,6 +501,7 @@ position = Vector2( 480, 490 )
 
 [node name="PlatformGen" parent="TileMap" instance=ExtResource( 7 )]
 enemy = ExtResource( 3 )
+enemy_thresh = 0.8
 
 [node name="WallGen" parent="TileMap" instance=ExtResource( 5 )]
 wall = ExtResource( 8 )
