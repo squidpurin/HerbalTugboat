@@ -8,6 +8,9 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	queue_free()
 
+func _process(delta: float) -> void:
+	Global.set("player", self)
+
 func _physics_process(delta: float) -> void:
 	var direction: = get_direction()
 	_velocity = calculate_move_velocity(_velocity, direction, speed)
