@@ -16,11 +16,12 @@ func _physics_process(delta: float) -> void:
 	# X Calculation
 	if is_on_wall():
 		direction.x = -direction.x
-	if not $RayCastLeft.get_collider():
-		direction = Vector2.RIGHT
-	if not $RayCastRight.get_collider():
-		direction = Vector2.LEFT
-		
+	if position.y >= Global.get("player").position.y:
+		if not $RayCastLeft.get_collider():
+			direction = Vector2.RIGHT
+		if not $RayCastRight.get_collider():
+			direction = Vector2.LEFT
+	set_sprite()
 	# Y Calculation
 	_velocity.y += gravity * delta
 	
@@ -28,3 +29,8 @@ func _physics_process(delta: float) -> void:
 	_velocity.x = speed.x * direction.x
 	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
 
+func set_sprite() -> void:
+	if direction.x == Vector2.LEFT.x:
+		$enemy.set_flip_h( false )
+	elif direction.x == Vector2.RIGHT.x:
+		$enemy.set_flip_h( true )

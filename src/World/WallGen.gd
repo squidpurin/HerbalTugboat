@@ -2,7 +2,7 @@ extends Position2D
 
 export(PackedScene) var wall
 
-export(int) var grid_size
+export(int) var grid_size = 16
 
 #initialisation
 var gen_height = 0;
@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 		if !is_connected("instance_node", Global.level, "instance_node"):
 			connect("instance_node", Global.level, "instance_node")
 	
-	if gen_height < (Global.get("player").position.y * 0.3 + get_viewport().size.y) / grid_size:
+	if gen_height < (Global.get("player").position.y + get_viewport().size.y) / grid_size:
 		# Position
 		global_position.y += grid_size
 		

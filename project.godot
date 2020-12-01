@@ -30,8 +30,8 @@ Global="*res://src/Global.gd"
 
 [display]
 
-window/size/width=720
-window/size/height=1520
+window/size/width=240
+window/size/height=512
 window/size/test_width=720
 window/size/test_height=1520
 window/handheld/orientation="portrait"
